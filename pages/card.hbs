@@ -1,0 +1,39 @@
+<h1 style="text-align: center">Кошик</h1>
+
+<div id="card">
+    {{#if courses.length}}
+        <table>
+            <thead>
+            <tr>
+                <th>Назва </th>
+                <th>Кількість </th>
+                <th>Дія </th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each courses}}
+                <tr>
+                    <td>{{title}}</td>
+                    <td>{{count}}</td>
+                    <td>
+                        <button
+                                class="btn btn-small js-remove"
+                                data-id="{{id}}"
+                                data-csrf="{{@root.csrf}}"
+                        >Видалити</button>
+                    </td>
+            {{/each}}
+            </tr>
+            </tbody>
+        </table>
+        <p><strong>Ціна:   </strong><span class="price">{{price}}</span></p>
+
+        <form action="/orders" method="POST">
+            <input type="hidden" name="_csrf" value="{{csrf}}">
+            <button type="submit" class="btn">Зробити замовлення</button>
+        </form>
+
+    {{else}}
+        <h6 style="text-align: center">Кошик пустий</h6>
+    {{/if}}
+</div>

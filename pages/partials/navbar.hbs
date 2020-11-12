@@ -1,0 +1,54 @@
+<nav>
+    <div class="nav-wrapper">
+        <a href="/" class="brand-logo">Course store</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+            {{#if isHome}}
+                <li class="active"><a href="/">Головна</a></li>
+            {{else}}
+                <li><a href="/">Головна</a></li>
+            {{/if}}
+
+            {{#if isCourses}}
+                <li class="active"><a href="/courses">Курси</a></li>
+            {{else}}
+                <li><a href="/courses">Курси</a></li>
+            {{/if}}
+
+            {{#if isAuth}}
+                {{#if isAdd}}
+                    <li class="active"><a href="/add">Добавити курс</a></li>
+                {{else}}
+                    <li><a href="/add">Добавити курс</a></li>
+                {{/if}}
+
+                {{#if isProfile}}
+                    <li class="active"><a href="/profile">Профіль</a></li>
+                {{else}}
+                    <li><a href="/profile">Профіль</a></li>
+                {{/if}}
+
+                {{#if isCard}}
+                    <li class="active"><a href="/card">Кошик</a></li>
+                {{else}}
+                    <li><a href="/card">Кошик</a></li>
+                {{/if}}
+
+                {{#if isOrder}}
+                    <li class="active"><a href="/orders">Закази</a></li>
+                {{else}}
+                    <li><a href="/orders">Закази</a></li>
+                {{/if}}
+
+                <li><a href="/auth/logout">Вийти</a></li>
+            {{else}}
+                {{#if isLogin}}
+                    <li class="active"><a href="/auth/login#login">Увійти</a></li>
+                {{else}}
+                    <li><a href="/auth/login#login">Увійти</a></li>
+                {{/if}}
+
+            {{/if}}
+        </ul>
+    </div>
+</nav>
